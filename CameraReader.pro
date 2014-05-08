@@ -19,10 +19,10 @@ include(core/core.pri)
 
 SOURCES += main.cpp\
 
-INCLUDEPATH += ../LibOpenCV/include
-DEPENDPATH += ../LibOpenCV//include
+INCLUDEPATH += ../LibOpenCV/OpenCV-2.4.3/include
+DEPENDPATH += ../LibOpenCV/OpenCV-2.4.3/include
 
-LIBS += -L../LibOpenCV/lib/ \
+LIBS += -L../LibOpenCV/OpenCV-2.4.3/lib/ \
         -lopencv_highgui243d \
         -lopencv_core243d \
         -lopencv_features2d243d \
