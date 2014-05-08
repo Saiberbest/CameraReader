@@ -11,7 +11,6 @@ ProcessSaveVideo::ProcessSaveVideo(QString filename,cv::Size size, int codec, do
 
 ProcessSaveVideo::~ProcessSaveVideo()
 {
-    stopSave();
 }
 
 void ProcessSaveVideo::setFileName(QString filename)

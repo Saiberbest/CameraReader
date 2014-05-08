@@ -1,5 +1,21 @@
 #include "planner.h"
 
-Planner::Planner()
+Planner::Planner(Process *process, int waitTime, int processTime)
 {
+
+}
+
+Planner::~Planner()
+{
+
+}
+
+void Planner::startPlanner()
+{
+
+}
+
+void Planner::stopPlanner()
+{
+
 }
