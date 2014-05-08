@@ -19,10 +19,10 @@ include(core/core.pri)
 
 SOURCES += main.cpp\
 
-INCLUDEPATH += D:/Librairies/OpenCV-2.4.3/build_vsqt/install/include
-DEPENDPATH += D:/Librairies/OpenCV-2.4.3/build_vsqt/install/include
+INCLUDEPATH += ../LibOpenCV/include
+DEPENDPATH += ../LibOpenCV//include
 
-LIBS += -LD:/Librairies/OpenCV-2.4.3/build_vsqt/install/lib/ \
+LIBS += -L../LibOpenCV/lib/ \
         -lopencv_highgui243d \
         -lopencv_core243d \
         -lopencv_features2d243d \
