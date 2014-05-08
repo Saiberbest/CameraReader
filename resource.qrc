@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/icones">
+        <file>icones/add_blue.png</file>
+        <file>icones/add_green.png</file>
+        <file>icones/backward_blue.png</file>
+        <file>icones/forward_blue.png</file>
+        <file>icones/next_blue.png</file>
+        <file>icones/ok_blue.png</file>
+        <file>icones/play_green.png</file>
+        <file>icones/play_red.png</file>
+        <file>icones/previous_blue.png</file>
+        <file>icones/stop_red.png</file>
+        <file>icones/remove_red.png</file>
+        <file>icones/save.png</file>
+        <file>icones/camera.png</file>
+    </qresource>
+</RCC>
