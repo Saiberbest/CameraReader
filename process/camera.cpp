@@ -74,6 +74,10 @@ int Camera::getCodec()
 
 void Camera::run()
 {
+    for(int i = 0 ; i < listProcess->size(); i++)
+    {
+        listProcess->at(i)->startProcess();
+    }
     readCamera();
 }
 
