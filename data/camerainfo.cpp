@@ -83,6 +83,21 @@ void CameraInfo::setFlipVertical(bool flip)
     this->flipVertical = flip;
 }
 
+void CameraInfo::removeProcessCamera()
+{
+    listProcess->clear();
+}
+
+void CameraInfo::addProcessToCamera(Process::ProcesType type)
+{
+    listProcess->append(type);
+}
+
+bool CameraInfo::hasProcess(Process::ProcesType type)
+{
+    return listProcess->contains(type);
+}
+
 QList<Process::ProcesType> *CameraInfo::getProcesslist()
 {
     return listProcess;

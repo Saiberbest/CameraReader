@@ -1,13 +1,14 @@
 #ifndef PLANNER_H
 #define PLANNER_H
 
-#include <QWaitCondition>
-#include <QMutex>
+#include <QObject>
+#include <QTimer>
 
 #include "process/process.h"
 
-class Planner
+class Planner : QObject
 {
+    Q_OBJECT
 public:
     Planner(Process *process, int waitTime, int processTime);
     ~Planner();
@@ -15,13 +16,15 @@ public:
     void startPlanner();
     void stopPlanner();
 
+private slots:
+    void startProcess();
+    void stopProcess();
 private:
-    QWaitCondition startRecord;
-    QWaitCondition stopRecord;
-    QMutex mutex;
-
     int waitTime;
     int processTime;
+
+    QTimer *timerStart;
+    QTimer *timerStop;
 
     Process *process;
 };

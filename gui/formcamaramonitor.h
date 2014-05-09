@@ -17,6 +17,11 @@ public:
     explicit FormCamaraMonitor(Controller *controller, QWidget *parent = 0);
     ~FormCamaraMonitor();
 
+private slots:
+    void on_pbPlay_clicked();
+
+    void on_pbStop_clicked();
+
 private:
     Ui::FormCamaraMonitor *ui;
     Controller *controller;

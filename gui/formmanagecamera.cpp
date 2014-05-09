@@ -58,6 +58,7 @@ void FormManageCamera::createGCheckBoxLayout()
         {
             QString name = en.valueToKey(j);
             QCheckBox *chBox = new QCheckBox(formatProcessName(name), this);
+            listCheckBox->append(chBox);
             vbox->addWidget(chBox);
         }
     }
@@ -82,6 +83,13 @@ void FormManageCamera::on_listWidget_itemClicked(QListWidgetItem *item)
     ui->cbType->setCurrentIndex((int)listCameraInfo->at(currentItem)->getType());
     ui->cbFlipH->setChecked(listCameraInfo->at(currentItem)->getFlipHorizontal());
     ui->cbFlipV->setChecked(listCameraInfo->at(currentItem)->getFlipVertical());
+
+    for (int i = 0; i < listCheckBox->size(); i++)
+    {
+        listCheckBox->at(i)->setChecked(listCameraInfo->at(currentItem)->hasProcess(static_cast<Process::ProcesType>(i)));
+    }
+
+
 }
 
 void FormManageCamera::on_pbSave_clicked()
@@ -95,6 +103,9 @@ void FormManageCamera::on_pbSave_clicked()
     listCameraInfo->at(currentItem)->setType((CameraInfo::CameraType)ui->cbType->currentIndex());
     listCameraInfo->at(currentItem)->setFlipHorizontal(ui->cbFlipH->isChecked());
     listCameraInfo->at(currentItem)->setFlipVertical(ui->cbFlipV->isChecked());
+
+    listCameraInfo->at(currentItem)->removeProcessCamera();
+
     Process::ProcesType process;
     for (int i = 0 ; i < listCheckBox->size(); i++)
     {
@@ -102,7 +113,7 @@ void FormManageCamera::on_pbSave_clicked()
         if (checked)
         {
             process = static_cast<Process::ProcesType>(i);
-            //listCameraInfo->at(currentItem)->
+            listCameraInfo->at(currentItem)->addProcessToCamera(process);
         }
     }
     refreschCB();
