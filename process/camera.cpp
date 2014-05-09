@@ -85,14 +85,14 @@ void Camera::readCamera()
         mutexRead.unlock();
         if (image.data)
         {
-            if (first)
+            /*if (first)
             {
                 size = cv::Size((int) vcap.get(CV_CAP_PROP_FRAME_WIDTH),    // Acquire input size
                                 (int) vcap.get(CV_CAP_PROP_FRAME_HEIGHT));
                 codec = static_cast<int>(vcap.get(CV_CAP_PROP_FOURCC));
                 fps = vcap.get(CV_CAP_PROP_FPS);
                 first = false;
-            }
+            }*/
             cv::Mat tmp = image;
             if (flipHorizontal && flipVertical)
             {
