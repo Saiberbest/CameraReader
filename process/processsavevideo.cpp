@@ -1,11 +1,9 @@
 #include "processsavevideo.h"
 
-ProcessSaveVideo::ProcessSaveVideo(QString filename,cv::Size size, int codec, double fps) : Process()
+ProcessSaveVideo::ProcessSaveVideo(QString filename, Planner *planner) : Process()
 {
     this->filename = filename;
-    this->size = size;
-    this->codec = codec;
-    this->fps = fps;
+    this->planner = planner;
     ready = false;
 }
 

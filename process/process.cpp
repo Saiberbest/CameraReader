@@ -22,6 +22,13 @@ void Process::stopProcess()
     endProcess();
 }
 
+void Process::setSourceInfo(cv::Size size, int codec, double fps)
+{
+    this->size = size;
+    this->fps = fps;
+    this->codec = codec;
+}
+
 void Process::addImage(cv::Mat img)
 {
     currentImage = img;

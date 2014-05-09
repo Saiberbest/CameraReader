@@ -10,7 +10,7 @@ class Controller
 {
 public:
     Controller();
-
+    ~Controller();
     void setCameraInfo(QList<CameraInfo *> *listCameraInfo);
     void setPreferences(Preferences *pref);
 

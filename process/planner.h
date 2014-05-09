@@ -19,6 +19,11 @@ private:
     QWaitCondition startRecord;
     QWaitCondition stopRecord;
     QMutex mutex;
+
+    int waitTime;
+    int processTime;
+
+    Process *process;
 };
 
 #endif // PLANNER_H

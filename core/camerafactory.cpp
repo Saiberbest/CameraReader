@@ -56,6 +56,15 @@ void CameraFactory::createProcess()
     }
 }
 
+
+void CameraFactory::releaseCamera()
+{
+    for (int i = 0; i < listCamera->size(); i++)
+    {
+        listCamera->at(i)->stopReading();
+    }
+}
+
 void CameraFactory::setCameraInfo(QList<CameraInfo *> *listCameraInfo)
 {
     this->listCameraInfo = listCameraInfo;

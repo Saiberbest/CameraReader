@@ -12,6 +12,8 @@ public:
 
     void createCamera();
     void createProcess();
+    void releaseCamera();
+
     void setCameraInfo(QList<CameraInfo *> *listCameraInfo);
     QList<Camera *> *getCameras();
     QList<FormShowCamera *> *getListShowCamera();

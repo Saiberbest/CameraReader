@@ -6,6 +6,12 @@ Controller::Controller()
     camFactory = new CameraFactory(this);
 }
 
+
+Controller::~Controller()
+{
+    camFactory->releaseCamera();
+}
+
 void Controller::setCameraInfo(QList<CameraInfo *> *listCameraInfo)
 {
     this->listCameraInfo = listCameraInfo;

@@ -14,6 +14,7 @@ public:
     explicit Process(QObject *parent = 0);
     ~Process();
 
+    void setSourceInfo(cv::Size size, int codec, double fps);
     void addImage(cv::Mat img);
     void startProcess();
     void stopProcess();
@@ -23,7 +24,9 @@ public slots:
 
 protected:
     cv::Mat currentImage;
-
+    cv::Size size;
+    int codec;
+    double fps;
 private:
     bool isrunning;
     void virtual process()=0;

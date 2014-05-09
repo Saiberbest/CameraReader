@@ -5,11 +5,12 @@
 #include <QMutex>
 
 #include "process/process.h"
+#include "process/planner.h"
 
 class ProcessSaveVideo : public Process
 {
 public:
-    ProcessSaveVideo(QString filename, cv::Size size, int codec, double fps);
+    ProcessSaveVideo(QString filename, Planner *planner = NULL);
     ~ProcessSaveVideo();
     void setFileName(QString filename);
 private:
@@ -17,9 +18,7 @@ private:
     bool ready;
     cv::VideoWriter outVideo;
 
-    cv::Size size;
-    int codec;
-    double fps;
+    Planner *planner;
 
     void process();
     void beginProcess();

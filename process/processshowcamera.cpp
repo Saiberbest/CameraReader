@@ -4,11 +4,15 @@ ProcessShowCamera::ProcessShowCamera(FormShowCamera *showCamera) : Process()
 {
     this->showCamera = showCamera;
     imgConvertor = new ImageConvertor();
+    size.height = showCamera->getHeightImage();
+    size.width = showCamera->getWidthImage();
+    QPixmap px(size.width,size.height);
+    px.fill(Qt::black);
+    showCamera->updateImage(px);
 }
 
 ProcessShowCamera::~ProcessShowCamera()
 {
-
 }
 
 void ProcessShowCamera::process()
@@ -20,12 +24,11 @@ void ProcessShowCamera::process()
 
 void ProcessShowCamera::beginProcess()
 {
-    size.height = showCamera->getHeightImage();
-    size.width = showCamera->getWidthImage();
 }
 
 void ProcessShowCamera::endProcess()
 {
-    cv::Mat m = cv::Mat::zeros(size.height, size.width, CV_32F);
-    showCamera->updateImage(imgConvertor->Mat2QPixmap(m));
+    QPixmap px(size.width,size.height);
+    px.fill(Qt::black);
+    showCamera->updateImage(px);
 }
