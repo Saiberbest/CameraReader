@@ -9,7 +9,7 @@
 class Planner
 {
 public:
-    Planner(Process *process, int waitTime, int processTime);
+    Planner(Process *process, int waitTimeS, int processTimeS);
     ~Planner();
 
     void startPlanner();
