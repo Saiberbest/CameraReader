@@ -39,3 +39,21 @@ void FormCamaraMonitor::setupLayout()
         }
     }
 }
+
+void FormCamaraMonitor::on_pbPlay_clicked()
+{
+    QList<Camera *> *listCamera = controller->getCameras();
+    for (int i = 0 ; i < listCamera->size(); i++)
+    {
+        listCamera->at(i)->startReading();
+    }
+}
+
+void FormCamaraMonitor::on_pbStop_clicked()
+{
+    QList<Camera *> *listCamera = controller->getCameras();
+    for (int i = 0 ; i < listCamera->size(); i++)
+    {
+        listCamera->at(i)->stopReading();
+    }
+}

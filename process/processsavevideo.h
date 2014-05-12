@@ -5,20 +5,19 @@
 #include <QMutex>
 
 #include "process/process.h"
-#include "process/planner.h"
 
 class ProcessSaveVideo : public Process
 {
 public:
-    ProcessSaveVideo(QString filename, Planner *planner = NULL);
+    ProcessSaveVideo(QString directory, QString filename);
     ~ProcessSaveVideo();
     void setFileName(QString filename);
 private:
     QString filename;
+    QString directory;
+
     bool ready;
     cv::VideoWriter outVideo;
-
-    Planner *planner;
 
     void process();
     void beginProcess();

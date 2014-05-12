@@ -1,7 +1,9 @@
 #include "camerafactory.h"
+#include "core/controller.h"
 #include "process/ipcamera.h"
 #include "process/webcam.h"
 #include "process/processshowcamera.h"
+#include "process/processsavevideo.h"
 
 CameraFactory::CameraFactory(Controller *controller)
 {
@@ -47,6 +49,12 @@ void CameraFactory::createProcess()
                 FormShowCamera *form = new FormShowCamera(controller, i, cameInfo->getName());
                 listShowCamera->append(form);
                 currentCamera->addProcess(new ProcessShowCamera(form));
+            }
+                break;
+            case Process::SAVE_VIDEO:
+            {
+                ProcessSaveVideo *process = new ProcessSaveVideo(controller->getPreferences()->getPathURL(), cameInfo->getName());
+                currentCamera->addProcess(process);
             }
                 break;
             default:

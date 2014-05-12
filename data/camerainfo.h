@@ -31,6 +31,9 @@ public:
     void setFlipHorizontal(bool flip);
     void setFlipVertical(bool flip);
 
+    void removeProcessCamera();
+    void addProcessToCamera(Process::ProcesType type);
+    bool hasProcess(Process::ProcesType type);
     QList<Process::ProcesType> *getProcesslist();
 private:
     CameraType type;

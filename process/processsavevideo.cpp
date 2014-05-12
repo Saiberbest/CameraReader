@@ -1,9 +1,12 @@
 #include "processsavevideo.h"
+#include <QDateTime>
+#include <QDir>
+#include <QDebug>
 
-ProcessSaveVideo::ProcessSaveVideo(QString filename, Planner *planner) : Process()
+ProcessSaveVideo::ProcessSaveVideo(QString directory, QString filename) : Process()
 {
+    this->directory = directory;
     this->filename = filename;
-    this->planner = planner;
     ready = false;
 }
 
@@ -23,7 +26,16 @@ void ProcessSaveVideo::process()
 
 void ProcessSaveVideo::beginProcess()
 {
-    outVideo.open(filename.toStdString(), codec, fps, size, true);
+    QDateTime now = QDateTime::currentDateTime();
+
+    QString file = directory + "/" + filename + "_" + now.toString("yyyyMMddHHmmss") + ".avi";
+    qDebug() << codec << fps << size.height;
+    outVideo.open(file.toStdString(), codec, fps, size, true);
+    if (!outVideo.isOpened())
+    {
+        qDebug()  << "Could not open the output video for write " << file;
+        return;
+    }
 }
 
 void ProcessSaveVideo::endProcess()

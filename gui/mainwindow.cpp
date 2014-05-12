@@ -40,7 +40,8 @@ void MainWindow::on_actionQuit_triggered()
 
 void MainWindow::on_actionAbout_triggered()
 {
-    setCentralWidget(new FormAbout(this));
+    FormAbout *form = new FormAbout();
+    form->show();
 }
 
 void MainWindow::on_actionStart_Camera_triggered()

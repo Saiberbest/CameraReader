@@ -26,12 +26,13 @@ void Camera::startReading()
         codec = static_cast<int>(vcap.get(CV_CAP_PROP_FOURCC));
         fps = vcap.get(CV_CAP_PROP_FPS);
         first = false;
+        qDebug() << fps << codec;
 
         keepReading = true;
         for(int i = 0 ; i < listProcess->size(); i++)
         {
             listProcess->at(i)->setSourceInfo(size, codec, fps);
-            listProcess->at(i)->startProcess();
+            listProcess->at(i)->initProcess();
         }
         start();
     }
@@ -52,6 +53,7 @@ void Camera::stopReading()
 void Camera::addProcess(Process *process)
 {
     listProcess->append(process);
+    qDebug() << listProcess->size();
 }
 
 cv::Mat Camera::getImage()

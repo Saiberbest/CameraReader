@@ -4,6 +4,8 @@
 #include <QObject>
 #include "opencv2/opencv.hpp"
 
+class Planner;
+
 class Process : public QObject
 {
     Q_OBJECT
@@ -15,7 +17,9 @@ public:
     ~Process();
 
     void setSourceInfo(cv::Size size, int codec, double fps);
+    void setPlanner(Planner *planner);
     void addImage(cv::Mat img);
+    void initProcess();
     void startProcess();
     void stopProcess();
 signals:
@@ -27,6 +31,8 @@ protected:
     cv::Size size;
     int codec;
     double fps;
+
+    Planner *planner;
 private:
     bool isrunning;
     void virtual process()=0;
